@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Dados xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ListaProdutos />
+  <ListaUsuarios>
+    <Usuario>
+      <CodUsuario>1</CodUsuario>
+      <NomeUsuario>jordan123</NomeUsuario>
+    </Usuario>
+  </ListaUsuarios>
+</Dados>
