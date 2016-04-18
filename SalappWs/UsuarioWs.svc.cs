@@ -1,4 +1,5 @@
 ﻿using SalappWs.Entidade;
+using SalappWs.Negocio;
 using SalappWs.Util;
 using System;
 using System.Collections.Generic;
@@ -13,26 +14,60 @@ namespace SalappWs
     // NOTE: In order to launch WCF Test Client for testing this service, please select Usuario.svc or Usuario.svc.cs at the Solution Explorer and start debugging.
     public class UsuarioWs : IUsuarioWs
     {
+        /// <summary>
+        /// Altera usuario.
+        /// </summary>
+        /// <param name="usuario"></param>
         public void Alterar(Usuario usuario)
         {
-            throw new NotImplementedException();
+            new UsuarioBll().Alterar(usuario);
         }
 
+        /// <summary>
+        /// Insere usuario.
+        /// </summary>
+        /// <param name="usuario"></param>
         public void Inserir(Usuario usuario)
         {
-            Dados dados = UtilDados.RecuperarBase();
-            dados.ListaUsuarios.Add(usuario);
-            UtilDados.GravarDados(dados);
+            new UsuarioBll().Inserir(usuario);
         }
 
+        /// <summary>
+        /// Exclui usuario.
+        /// </summary>
+        /// <param name="codUsuario"></param>
+        public void Excluir(string codUsuario)
+        {
+            new UsuarioBll().Excluir(Convert.ToInt32(codUsuario));
+        }
+
+        /// <summary>
+        /// Lista todos usuarios.
+        /// </summary>
+        /// <returns></returns>
         public List<Usuario> Listar()
         {
-            return UtilDados.RecuperarBase().ListaUsuarios;
+            return new UsuarioBll().Listar();
         }
 
-        public void Recuperar(string id)
+        /// <summary>
+        /// Pesquisa usuarios.
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
+        public List<Usuario> Pesquisar(Usuario usuario)
         {
-            throw new NotImplementedException();
+            return new UsuarioBll().Pesquisar(usuario);
+        }
+
+        /// <summary>
+        /// Recupera usuarios.
+        /// </summary>
+        /// <param name="codUsuario"></param>
+        /// <returns></returns>
+        public Usuario Recuperar(string codUsuario)
+        {
+            return new UsuarioBll().Recuperar(Convert.ToInt32(codUsuario));
         }
     }
 }
